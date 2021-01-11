@@ -8,7 +8,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'js/[name].[contenthash].js',
+    filename: '[name].[contenthash].js',
     assetModuleFilename: 'images/[name].[contenthash][ext][query]',
   },
   module: {
@@ -29,7 +29,9 @@ module.exports = {
   },
   plugins: [
     new CleanWebpackPlugin(),
-    new HtmlWebpackPlugin({ template: './src/index.html' }),
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+    }),
   ],
   optimization: {
     moduleIds: 'deterministic',
