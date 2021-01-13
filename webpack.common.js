@@ -10,6 +10,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].[contenthash].js',
     assetModuleFilename: 'images/[name].[contenthash][ext][query]',
+    publicPath: '/',
   },
   module: {
     rules: [
