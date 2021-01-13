@@ -21,6 +21,7 @@
   <li>Webpack</li>
   <li>Babel</li>
   <li>Node</li>
+  <li>Material-UI</li>
 </ul>
 
 <h2>Run Locally</h2>
