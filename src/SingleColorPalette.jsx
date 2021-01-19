@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { withStyles } from '@material-ui/styles';
 import Navbar from './Navbar';
+import ColorBox from './ColorBox';
 import PaletteFooter from './PaletteFooter';
 import styles from './styles/PaletteStyles';
-import ColorBox from './ColorBox';
 
 class SingleColorPalette extends Component {
   constructor(props) {
@@ -17,6 +17,7 @@ class SingleColorPalette extends Component {
   gatherShades(palette, colorToFilterBy) {
     let shades = [];
     let allColors = palette.colors;
+
     for (let key in allColors) {
       shades = shades.concat(
         allColors[key].filter((color) => color.id === colorToFilterBy)
@@ -47,7 +48,7 @@ class SingleColorPalette extends Component {
         <div className={classes.colors}>
           {colorBoxes}
           <div className={classes.goBack}>
-            <Link to={`/palette/${id}`}>Go back</Link>
+            <Link to={`/palette/${id}`}>GO BACK</Link>
           </div>
         </div>
         <PaletteFooter paletteName={paletteName} emoji={emoji} />
