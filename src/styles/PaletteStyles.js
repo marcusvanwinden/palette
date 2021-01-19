@@ -15,6 +15,7 @@ export default {
     position: 'relative',
     cursor: 'pointer',
     marginBottom: '-3.6px',
+    opacity: 1,
     backgroundColor: 'black',
     '& a': {
       color: 'white',

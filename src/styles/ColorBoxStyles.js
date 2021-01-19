@@ -50,7 +50,7 @@ export default {
     fontSize: '1rem',
     lineHeight: '30px',
     color: ({ background }) =>
-      chroma(background).luminance() >= 0.7 ? 'rgba(0, 0, 0, 0.6' : 'white',
+      chroma(background).luminance() >= 0.7 ? 'rgba(0, 0, 0, 0.6)' : 'white',
     textTransform: 'uppercase',
     border: 'none',
     textDecoration: 'none',
