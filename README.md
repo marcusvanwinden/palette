@@ -35,8 +35,8 @@
     <th>Mobile Palette</th>
   </tr>
   <tr>
-    <td><img src="./github_images/5.png" width=500></td>
-    <td><img src="./github_images/6.png" width=500></td>
+    <td><img src="./github_images/5.png" height=300></td>
+    <td><img src="./github_images/6.png" height=300></td>
   </tr>
 </table>
 
