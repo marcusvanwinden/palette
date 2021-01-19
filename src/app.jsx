@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Route, Switch, Link } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
 import SingleColorPalette from './SingleColorPalette';
@@ -16,13 +16,13 @@ class App extends Component {
   }
 
   findPalette(id) {
-    return this.state.palettes.find((palette) => palette.id === id);
+    return this.state.palettes.find(function (palette) {
+      return palette.id === id;
+    });
   }
 
   savePalette(newPalette) {
-    this.setState((prevState) => ({
-      palettes: [...prevState.palettes, newPalette],
-    }));
+    this.setState({ palettes: [...this.state.palettes, newPalette] });
   }
 
   render() {
@@ -36,6 +36,18 @@ class App extends Component {
               savePalette={this.savePalette}
               palettes={this.state.palettes}
               {...routeProps}
+            />
+          )}
+        />
+        <Route
+          exact
+          path="/palette/:paletteId/:colorId"
+          render={(routeProps) => (
+            <SingleColorPalette
+              colorId={routeProps.match.params.colorId}
+              palette={generatePalette(
+                this.findPalette(routeProps.match.params.paletteId)
+              )}
             />
           )}
         />
@@ -57,22 +69,7 @@ class App extends Component {
             />
           )}
         />
-        <Route
-          exact
-          path="/palette/:paletteId/:colorId"
-          render={(routeProps) => (
-            <SingleColorPalette
-              colorId={routeProps.match.params.colorId}
-              palette={generatePalette(
-                this.findPalette(routeProps.match.params.paletteId)
-              )}
-            />
-          )}
-        />
       </Switch>
-      // <div>
-      //   <Palette palette={generatePalette(seedColors[4])} />
-      // </div>
     );
   }
 }

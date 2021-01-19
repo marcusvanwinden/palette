@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import clsx from 'clsx';
+import classNames from 'classnames';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -13,27 +13,26 @@ import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 class PaletteFormNav extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      newPaletteName: '',
-    };
+    this.state = { newPaletteName: '' };
     this.handleChange = this.handleChange.bind(this);
   }
 
   componentDidMount() {
-    const { palettes } = this.props;
     ValidatorForm.addValidationRule('isPaletteNameUnique', (value) =>
-      palettes.every(
+      this.props.palettes.every(
         ({ paletteName }) => paletteName.toLowerCase() !== value.toLowerCase()
       )
     );
   }
 
-  handleChange(event) {
-    this.setState({ [event.target.name]: event.target.value });
+  handleChange(evt) {
+    this.setState({
+      [evt.target.name]: evt.target.value,
+    });
   }
 
   render() {
-    const { open, classes, handleSubmit, handleDrawerOpen } = this.props;
+    const { classes, open } = this.props;
     const { newPaletteName } = this.state;
     return (
       <div>
@@ -41,28 +40,29 @@ class PaletteFormNav extends Component {
         <AppBar
           position="fixed"
           color="default"
-          className={clsx(classes.appBar, {
+          className={classNames(classes.appBar, {
             [classes.appBarShift]: open,
           })}
         >
-          <Toolbar>
+          <Toolbar disableGutters={!open}>
             <IconButton
               color="inherit"
-              aria-label="open drawer"
-              onClick={handleDrawerOpen}
-              edge="start"
-              className={clsx(classes.menuButton, open && classes.hide)}
+              aria-label="Open drawer"
+              onClick={this.props.handleDrawerOpen}
+              className={classNames(classes.menuButton, open && classes.hide)}
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap>
+            <Typography variant="h6" color="inherit" noWrap>
               Persistent drawer
             </Typography>
-            <ValidatorForm onSubmit={() => handleSubmit(newPaletteName)}>
+            <ValidatorForm
+              onSubmit={() => this.props.handleSubmit(newPaletteName)}
+            >
               <TextValidator
                 label="Palette Name"
+                value={this.state.newPaletteName}
                 name="newPaletteName"
-                value={newPaletteName}
                 onChange={this.handleChange}
                 validators={['required', 'isPaletteNameUnique']}
                 errorMessages={['Enter Palette Name', 'Name already used']}
