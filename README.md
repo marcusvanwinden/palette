@@ -2,6 +2,17 @@
 
 <p>When building websites or doing graphical design, you often need multiple colors that look great together. Palette is an app in which you can create color palettes that are perfect for your project.</p>
 
+<h2>Features</h2>
+<ul>
+  <li>Create color palettes.</li>
+  <li>Delete color palettes.</li>
+  <li>Add colors in various formats (e.g., RGB, HEX) to a palette.</li>
+  <li>Change color brightness levels.</li>
+  <li>Look up similar colors to a specific color.</li>
+  <li>Copy colors to clipboard.</li>
+  <li>Change order of colors in a particular palette.</li>
+</ul>
+
 <table>
   <tr>
     <th>Main Menu</th>
@@ -28,17 +39,6 @@
     <td><img src="./github_images/6.png" width=500></td>
   </tr>
 </table>
-
-<h2>Features</h2>
-<ul>
-  <li>Create color palettes.</li>
-  <li>Delete color palettes.</li>
-  <li>Add colors in various formats (e.g., RGB, HEX) to a palette.</li>
-  <li>Change color brightness levels.</li>
-  <li>Look up similar colors to a specific color.</li>
-  <li>Copy colors to clipboard.</li>
-  <li>Change order of colors in a particular palette.</li>
-</ul>
 
 <h2>Tech Stack</h2>
 <ul>
